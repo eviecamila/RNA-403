@@ -3,6 +3,7 @@ com\heatonresearch\book\introneuralnet\neural\matrix\MatrixCODEC.class
 com\heatonresearch\book\introneuralnet\neural\feedforward\FeedforwardNetwork.class
 com\heatonresearch\book\introneuralnet\neural\genetic\MateWorker.class
 com\heatonresearch\book\introneuralnet\neural\feedforward\train\backpropagation\BackpropagationLayer.class
+com\mycompany\mavenproject1\Mavenproject1$2.class
 com\heatonresearch\book\introneuralnet\neural\exception\NeuralNetworkError.class
 com\heatonresearch\book\introneuralnet\neural\exception\MatrixError.class
 com\heatonresearch\book\introneuralnet\neural\matrix\BiPolarUtil.class
@@ -13,6 +14,7 @@ com\heatonresearch\book\introneuralnet\neural\som\TrainSelfOrganizingMap$Learnin
 com\mycompany\mavenproject1\Mavenproject1.class
 com\heatonresearch\book\introneuralnet\neural\feedforward\FeedforwardLayer.class
 com\heatonresearch\book\introneuralnet\neural\genetic\GeneticAlgorithm.class
+com\mycompany\mavenproject1\Mavenproject1$3.class
 com\heatonresearch\book\introneuralnet\neural\matrix\Matrix.class
 com\heatonresearch\book\introneuralnet\neural\activation\ActivationLinear.class
 com\heatonresearch\book\introneuralnet\neural\som\TrainSelfOrganizingMap.class
@@ -23,8 +25,11 @@ com\heatonresearch\book\introneuralnet\neural\activation\ActivationTANH.class
 com\heatonresearch\book\introneuralnet\neural\matrix\MatrixMath.class
 com\heatonresearch\book\introneuralnet\neural\som\NormalizeInput$NormalizationType.class
 com\heatonresearch\book\introneuralnet\neural\anneal\SimulatedAnnealing.class
+com\mycompany\mavenproject1\Mavenproject1$1.class
 com\heatonresearch\book\introneuralnet\neural\feedforward\train\backpropagation\Backpropagation.class
 com\heatonresearch\book\introneuralnet\neural\activation\ActivationSigmoid.class
 com\heatonresearch\book\introneuralnet\neural\feedforward\train\Train.class
+com\mycompany\mavenproject1\PatternPanel.class
 com\heatonresearch\book\introneuralnet\neural\genetic\Chromosome.class
+com\mycompany\mavenproject1\Mavenproject1$4.class
 com\heatonresearch\book\introneuralnet\neural\util\ErrorCalculation.class
