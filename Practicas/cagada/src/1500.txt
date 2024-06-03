@@ -1,0 +1,17 @@
+¬í 
+sr com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardNetwork 
+È•ú  learningRateF momentumF 
+sr com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardLayer 
+Õ×Ä¼Y neuronsq ~  Íè:com.heatonresearch.book.introneuralnet.neural.activation.ActivationTANH›Í 
+w    
+sr com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardLayer 
+Õ×Ä¼Y neuronsq ~  Íè:com.heatonresearch.book.introneuralnet.neural.activation.ActivationTANH›Í 
+w    
+sr com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardLayer 
+Õ×Ä¼Y neuronsq ~  Íè:com.heatonresearch.book.introneuralnet.neural.activation.ActivationTANH›Í 
+w    
+sr com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardLayer 
+Õ×Ä¼Y neuronsq ~  Íè:com.heatonresearch.book.introneuralnet.neural.activation.ActivationTANH›Í 
+w    
+sq ~   
+[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[DD[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D

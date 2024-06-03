@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import com.heatonresearch.book.introneuralnet.ch10.sp500.PredictSP500;
+import com.heatonresearch.book.introneuralnet.ch10.sp500.FinancialSample;
 public class Mavenproject1 {
 
     public static String formatBoolean(final boolean b[]) {
@@ -36,6 +37,8 @@ public class Mavenproject1 {
         System.out.println("3- XOR");
         System.out.println("4- GeneticXOR");
         System.out.println("5- AnnealXOR");
+        System.out.println("6- FinancialSample");
+        System.out.println("7- PredictsSP500");
         int input = scanner.nextInt();
 
         switch (input) {
@@ -54,6 +57,15 @@ public class Mavenproject1 {
             case 5:
                 AnnealXOR.main(args);
                 break;
+            case 6: {
+                FinancialSample sample = new FinancialSample();
+                System.out.println(sample.toString());
+                break;
+            }
+            case 7: {
+                PredictSP500.main(args);
+                break;
+            }
             default:
                 System.out.println("Opción inválida.");
                 break;
