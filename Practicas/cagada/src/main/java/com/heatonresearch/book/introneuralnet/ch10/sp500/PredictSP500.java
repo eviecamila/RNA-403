@@ -95,20 +95,20 @@ public class PredictSP500 {
         for (final FinancialSample sample : this.actual.getSamples()) {
             if (sample.getDate().after(PredictSP500.PREDICT_FROM)) {
                 final StringBuilder str = new StringBuilder();
-                str.append(ReadCSV.displayDate(sample.getDate()));
-                str.append(":Start=");
+                str.append("#").append(index).append(1).append(" Fecha: ").append(ReadCSV.displayDate(sample.getDate()));
+                str.append("\nInicial=");
                 str.append(sample.getAmount());
 
                 this.actual.getInputData(index - INPUT_SIZE, present);
                 this.actual.getOutputData(index - INPUT_SIZE, actualOutput);
 
                 predict = this.network.computeOutputs(present);
-                str.append(",Actual % Change=");
+                str.append("\nCambio de % Real =");
                 str.append(percentFormat.format(actualOutput[0]));
-                str.append(",Predicted % Change= ");
+                str.append("\nCambio de % Predecido = ");
                 str.append(percentFormat.format(predict[0]));
 
-                str.append(":Difference=");
+                str.append("\nDiferencia = ");
 
                 final ErrorCalculation error = new ErrorCalculation();
                 error.updateError(predict, actualOutput);
@@ -160,7 +160,7 @@ public class PredictSP500 {
             this.actual = new SP500Actual(INPUT_SIZE, OUTPUT_SIZE);
             this.actual.load(this.PATH + "sp500.csv", this.PATH + "prime.csv");
 
-            System.out.println("Samples read: " + this.actual.size());
+            System.out.println("Muestras Leidas: " + this.actual.size() + "\n");
 
             if (full) {
                 createNetwork();
@@ -181,7 +181,7 @@ public class PredictSP500 {
     }
 
     public void saveNeuralNetwork() throws IOException {
-        SerializeObject.save(this.PATH+"sp500.net", this.network);
+        SerializeObject.save(this.PATH + "sp500.net", this.network);
     }
 
     private void trainNetworkBackprop() {
