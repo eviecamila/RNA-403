@@ -30,10 +30,35 @@ public class Mavenproject1 {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hola, que desea hacer?\n1- Hopfield\n2-Applet");
+        System.out.println("Hola, ¿qué desea hacer?");
+        System.out.println("1- Hopfield");
+        System.out.println("2- Applet");
+        System.out.println("3- XOR");
+        System.out.println("4- GeneticXOR");
+        System.out.println("5- AnnealXOR");
         int input = scanner.nextInt();
 
-        if(input==1)hopfield();else applet();
+        switch (input) {
+            case 1:
+                hopfield();
+                break;
+            case 2:
+                applet();
+                break;
+            case 3:
+                XOR.main(args);
+                break;
+            case 4:
+                GeneticXOR.main(args);
+                break;
+            case 5:
+                AnnealXOR.main(args);
+                break;
+            default:
+                System.out.println("Opción inválida.");
+                break;
+        }
+
     }
 
     public static void applet() {
