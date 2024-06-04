@@ -7,6 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import com.heatonresearch.book.introneuralnet.ch10.sp500.PredictSP500;
 import com.heatonresearch.book.introneuralnet.ch10.sp500.FinancialSample;
+
 public class Mavenproject1 {
 
     public static String formatBoolean(final boolean b[]) {
@@ -27,50 +28,41 @@ public class Mavenproject1 {
     }
 
     public static void main(final String args[]) {
-//        Pedir 1 para True
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hola, ¿qué desea hacer?");
-        System.out.println("1- Hopfield");
-        System.out.println("2- Applet");
-        System.out.println("3- XOR");
-        System.out.println("4- GeneticXOR");
-        System.out.println("5- AnnealXOR");
-        System.out.println("6- FinancialSample");
-        System.out.println("7- PredictsSP500");
-        int input = scanner.nextInt();
+        while (true) {
+            System.out.println("Hola, ¿qué desea hacer?");
+            System.out.println("1- Hopfield");
+            System.out.println("2- Applet");
+            System.out.println("3- XOR");
+            System.out.println("4- GeneticXOR");
+            System.out.println("5- AnnealXOR");
+            System.out.println("6- FinancialSample");
+            System.out.println("7- PredictsSP500");
 
-        switch (input) {
-            case 1:
-                hopfield();
-                break;
-            case 2:
-                applet();
-                break;
-            case 3:
-                XOR.main(args);
-                break;
-            case 4:
-                GeneticXOR.main(args);
-                break;
-            case 5:
-                AnnealXOR.main(args);
-                break;
-            case 6: {
-                FinancialSample sample = new FinancialSample();
-                System.out.println(sample.toString());
-                break;
+            int input = scanner.nextInt();
+            switch (input) {
+                case 1 ->
+                    hopfield();
+                case 2 ->
+                    applet();
+                case 3 ->
+                    XOR.main(args, scanner);
+                case 4 ->
+                    GeneticXOR.main(args, scanner);
+                case 5 ->
+                    AnnealXOR.main(args, scanner);
+                case 6 -> {
+                    FinancialSample sample = new FinancialSample();
+                    System.out.println(sample.toString());
+                }
+                case 7 -> {
+                    PredictSP500.main(args);
+                }
+                default ->
+                    System.out.println("Opción inválida.");
             }
-            case 7: {
-                PredictSP500.main(args);
-                break;
-            }
-            default:
-                System.out.println("Opción inválida.");
-                break;
         }
-
     }
 
     public static void applet() {
@@ -123,23 +115,15 @@ public class Mavenproject1 {
         // Patrón de entrenamiento
         final boolean[] pattern1 = {true, true, false, false};
 
-        // Patrón a presentar
-        final boolean[] pattern2 = {true, false, false, false};
-
-        boolean[] result;
-
-        // Entrenar la red neuronal con pattern1
-        System.out.println("Entrenando la red Hopfield con: " + formatBoolean(pattern1));
+        // Entrenar la red con el patrón
         network.train(pattern1);
 
-        // Presentar pattern1 y ver si es reconocido
-        result = network.present(pattern1);
-        System.out.println("Presentando patrón: " + formatBoolean(pattern1) + ", y obteniendo " + formatBoolean(result));
+        // Probar la red con un patrón de entrada similar
+        final boolean[] pattern2 = {true, false, false, false};
+        final boolean[] result = network.present(pattern2);
 
-        // Presentar pattern2, similar a pattern1
-        // Se espera que pattern1 sea reconocido
-        result = network.present(pattern2);
-        System.out.println("Presentando patrón: " + formatBoolean(pattern2) + ", y obteniendo " + formatBoolean(result));
+        System.out.println("Entrada: " + formatBoolean(pattern2));
+        System.out.println("Salida: " + formatBoolean(result));
     }
 }
 

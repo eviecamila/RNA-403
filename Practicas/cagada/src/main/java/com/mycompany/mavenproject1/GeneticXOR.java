@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 public class GeneticXOR {
 
-    public static void main(final String args[]) {
+    public static void main(final String args[], Scanner scanner) {
         //EJEMPLO
 //public static double XOR_INPUT[][] = {{0.0, 0.0}, {1.0, 0.0},{0.0, 1.0}, {1.0, 1.0}};
 //    public static double XOR_IDEAL[][] = {{0.0}, {1.0}, {1.0}, {0.0}};
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese los valores para XOR_INPUT:");
         double[][] XOR_INPUT = new double[4][2];
@@ -30,7 +29,7 @@ public class GeneticXOR {
         network.addLayer(new FeedforwardLayer(3));
         network.addLayer(new FeedforwardLayer(1));
         network.reset();
-
+//        Diferencia principal: se entrena con algoritmo natural
         final TrainingSetNeuralGeneticAlgorithm train = new TrainingSetNeuralGeneticAlgorithm(
                 network, true, XOR_INPUT, XOR_IDEAL, 5000, 0.1, 0.25);
         int epoch = 1;

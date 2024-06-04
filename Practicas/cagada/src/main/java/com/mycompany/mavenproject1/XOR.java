@@ -5,13 +5,13 @@ import com.heatonresearch.book.introneuralnet.neural.feedforward.FeedforwardNetw
 import com.heatonresearch.book.introneuralnet.neural.feedforward.train.Train;
 import com.heatonresearch.book.introneuralnet.neural.feedforward.train.backpropagation.Backpropagation;
 import java.util.Scanner;
+
 public class XOR {
 
-    public static void main(final String args[]) {
+    public static void main(final String[] args, Scanner scanner) {
         //EJEMPLO
 //public static double XOR_INPUT[][] = {{0.0, 0.0}, {1.0, 0.0},{0.0, 1.0}, {1.0, 1.0}};
 //    public static double XOR_IDEAL[][] = {{0.0}, {1.0}, {1.0}, {0.0}};
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese los valores para XOR_INPUT:");
         double[][] XOR_INPUT = new double[4][2];
@@ -26,13 +26,12 @@ public class XOR {
             XOR_IDEAL[i][0] = AnnealXOR.obtenerValorValido(scanner, String.format("Para la entrada %d, ingrese el valor ideal (0 o 1): ", (i + 1)));
         }
 
-        scanner.close();
         final FeedforwardNetwork network = new FeedforwardNetwork();
         network.addLayer(new FeedforwardLayer(2));
         network.addLayer(new FeedforwardLayer(3));
         network.addLayer(new FeedforwardLayer(1));
         network.reset();
-
+//        Diferencia principal: se entrena con algoritmo de propagacion
         final Train train = new Backpropagation(network, XOR_INPUT, XOR_IDEAL, 0.7, 0.9);
         int epoch = 1;
         do {

@@ -28,11 +28,10 @@ import java.util.Scanner;
  */
 public class AnnealXOR {
 
-    public static void main(final String args[]) {
+    public static void main(final String args[], Scanner scanner) {
         //EJEMPLO
-//public static double XOR_INPUT[][] = {{0.0, 0.0}, {1.0, 0.0},{0.0, 1.0}, {1.0, 1.0}};
-//    public static double XOR_IDEAL[][] = {{0.0}, {1.0}, {1.0}, {0.0}};
-        Scanner scanner = new Scanner(System.in);
+        //public static double XOR_INPUT[][] = {{0.0, 0.0}, {1.0, 0.0},{0.0, 1.0}, {1.0, 1.0}};
+        //public static double XOR_IDEAL[][] = {{0.0}, {1.0}, {1.0}, {0.0}};
 
         System.out.println("Ingrese los valores para XOR_INPUT:");
         double[][] XOR_INPUT = new double[4][2];
@@ -47,7 +46,6 @@ public class AnnealXOR {
             XOR_IDEAL[i][0] = obtenerValorValido(scanner, String.format("Para la entrada %d, ingrese el valor ideal (0 o 1): ", (i + 1)));
         }
 
-        scanner.close();
         final FeedforwardNetwork network = new FeedforwardNetwork();
         network.addLayer(new FeedforwardLayer(2));
         network.addLayer(new FeedforwardLayer(3));
@@ -62,8 +60,7 @@ public class AnnealXOR {
 
         do {
             train.iteration();
-            System.out
-                    .println("Epoch #" + epoch + " Error:" + train.getError());
+            System.out.println("Epoch #" + epoch + " Error:" + train.getError());
             epoch++;
         } while ((epoch < 100) && (train.getError() > 0.001));
 
@@ -79,10 +76,20 @@ public class AnnealXOR {
 
     public static double obtenerValorValido(Scanner scanner, String mensaje) {
         double valor;
-        do {
+        while (true) {
             System.out.print(mensaje);
-            valor = scanner.nextDouble();
-        } while (valor != 0 && valor != 1);
+            if (scanner.hasNextDouble()) {
+                valor = scanner.nextDouble();
+                if (valor == 0 || valor == 1) {
+                    break;
+                } else {
+                    System.out.println("Por favor, ingrese un valor válido (0 o 1).");
+                }
+            } else {
+                System.out.println("Entrada no válida. Por favor, ingrese un número (0 o 1).");
+                scanner.next(); // descartar la entrada no válida
+            }
+        }
         return valor;
     }
 }
